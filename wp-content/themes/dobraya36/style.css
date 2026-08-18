@@ -1,0 +1,14 @@
+/*
+Theme Name: Добрая стоматология
+Theme URI: https://www.dobraya36.ru/
+Author: dobraya36 dev
+Author URI: https://www.dobraya36.ru/
+Description: Уникальная тема для стоматологической клиники «Добрая стоматология» (Воронеж). Чистый современный дизайн, ACF-блоки, интеграция с Contact Form 7 и Yoast SEO.
+Version: 1.0.0
+Requires at least: 6.0
+Requires PHP: 8.0
+Text Domain: dobraya36
+Tags: dental, clinic, medical, custom-colors, custom-menu, featured-images, translation-ready
+*/
+
+/* Основные стили подключаются отдельным файлом assets/css/main.css */

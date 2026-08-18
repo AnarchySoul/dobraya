@@ -1,0 +1,229 @@
+/* =========================================================
+   v3.1 — внутренние страницы: услуги, врачи, цены, контакты, 404
+   ========================================================= */
+
+/* Хлебные крошки */
+.breadcrumbs { padding: 1.2rem 0 0; }
+.breadcrumbs .wrap { font-size: .9rem; color: var(--ink-40); font-family: var(--head); font-weight: 600; }
+.breadcrumbs a { color: var(--blue-600); }
+.breadcrumbs a:hover { color: var(--blue-700); }
+.breadcrumbs .breadcrumb_last { color: var(--ink-60); }
+
+/* Шапка внутренней страницы */
+.page-hero { background: var(--grad-soft); border-bottom: 1px solid var(--line); }
+.page-hero__inner { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+.page-hero__eyebrow { margin-bottom: 1rem; }
+.page-hero__title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; margin: 0; }
+.page-hero__title .hl { color: var(--blue); }
+.page-hero__lead { font-size: 1.12rem; color: var(--ink-60); max-width: 60ch; margin: 1rem 0 0; }
+.page-hero--split { display: grid; grid-template-columns: 1.4fr .9fr; gap: 2.5rem; align-items: center; }
+.page-hero__aside { display: flex; justify-content: flex-end; }
+
+/* Карточка-иконка услуги в шапке single */
+.svc-badge { display: inline-flex; align-items: center; justify-content: center; width: 96px; height: 96px; border-radius: 28px; background: var(--grad); color: #fff; box-shadow: var(--sh-blue); }
+.svc-badge svg { width: 46px; height: 46px; }
+
+/* Каталог услуг */
+.catalog__group { margin-bottom: clamp(2rem, 4vw, 3rem); }
+.catalog__group-title { font-size: 1.5rem; margin-bottom: 1.2rem; display: flex; align-items: center; gap: .7rem; }
+.catalog__group-title::after { content: ""; flex: 1; height: 1px; background: var(--line); }
+.catalog-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1rem, 2vw, 1.5rem); }
+.cat-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem 1.5rem; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.cat-card:hover { transform: translateY(-6px); box-shadow: var(--sh); }
+.cat-card__ico { display: grid; place-items: center; width: 52px; height: 52px; border-radius: 15px; background: var(--blue-50); color: var(--blue); margin-bottom: 1rem; }
+.cat-card:nth-child(3n+2) .cat-card__ico { background: var(--green-50); color: var(--green-600); }
+.cat-card__ico svg { width: 26px; height: 26px; }
+.cat-card__title { font-size: 1.2rem; margin-bottom: .35rem; }
+.cat-card__title a { color: var(--ink); }
+.cat-card__title a:hover { color: var(--blue-700); }
+.cat-card__text { font-size: .93rem; color: var(--ink-60); margin: 0 0 1rem; }
+.cat-card__foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+.cat-card__price { font-family: var(--head); font-weight: 800; color: var(--ink); }
+.cat-card__price span { font-weight: 600; color: var(--ink-40); font-size: .82rem; }
+.cat-card__more { font-family: var(--head); font-weight: 800; color: var(--blue-600); display: inline-flex; align-items: center; gap: .35rem; font-size: .92rem; }
+.cat-card__more svg { width: 1.1em; height: 1.1em; transition: transform .25s var(--ease); }
+.cat-card:hover .cat-card__more svg { transform: translateX(4px); }
+
+/* Услуга single */
+.service-layout { display: grid; grid-template-columns: 1fr 340px; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
+.service-aside { position: sticky; top: 100px; display: grid; gap: 1.2rem; }
+.aside-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); padding: 1.6rem; box-shadow: var(--sh-sm); }
+.aside-card--cta { background: var(--grad); color: #fff; border: none; }
+.aside-card__price { font-family: var(--head); font-weight: 900; font-size: 2rem; line-height: 1; }
+.aside-card__price small { font-size: .9rem; font-weight: 600; color: var(--ink-40); display: block; margin-bottom: .3rem; }
+.aside-card--cta h3 { color: #fff; margin-bottom: .4rem; }
+.aside-card--cta p { color: rgba(255,255,255,.9); font-size: .95rem; }
+.aside-card--cta .btn { width: 100%; }
+.aside-list { list-style: none; padding: 0; margin: 0; display: grid; gap: .7rem; }
+.aside-list li { display: flex; align-items: flex-start; gap: .55rem; font-size: .95rem; }
+.aside-list svg { width: 1.15em; height: 1.15em; color: var(--green-600); flex: none; margin-top: .15rem; }
+
+.steps { display: grid; gap: 1rem; counter-reset: step; margin: 1.5rem 0; }
+.step { display: grid; grid-template-columns: 52px 1fr; gap: 1rem; align-items: start; background: var(--blue-50); border-radius: var(--r); padding: 1.2rem 1.4rem; }
+.step__n { counter-increment: step; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%; background: var(--grad); color: #fff; font-family: var(--head); font-weight: 900; }
+.step__n::before { content: counter(step); }
+.step__title { font-family: var(--head); font-weight: 800; margin-bottom: .2rem; }
+.step__text { font-size: .95rem; color: var(--ink-60); margin: 0; }
+
+/* FAQ аккордеон */
+.faq { display: grid; gap: .8rem; margin: 1.5rem 0; }
+.faq__item { border: 1px solid var(--line); border-radius: var(--r); background: #fff; overflow: hidden; }
+.faq__q { width: 100%; text-align: left; background: none; border: none; padding: 1.1rem 1.4rem; font-family: var(--head); font-weight: 800; font-size: 1.05rem; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; }
+.faq__q::after { content: "+"; font-size: 1.5rem; color: var(--blue); transition: transform .25s var(--ease); flex: none; }
+.faq__item[open] .faq__q::after { transform: rotate(45deg); }
+.faq__a { padding: 0 1.4rem 1.2rem; color: var(--ink-60); }
+
+/* Врачи */
+.team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.4vw, 2rem); }
+.doc-card { background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.doc-card:hover { transform: translateY(-6px); box-shadow: var(--sh); }
+.doc-card__photo { aspect-ratio: 4/5; background: var(--grad-soft); overflow: hidden; display: grid; place-items: center; }
+.doc-card__photo img { width: 100%; height: 100%; object-fit: cover; }
+.doc-card__photo .ph { width: 42%; height: 42%; color: var(--blue); opacity: .5; }
+.doc-card__body { padding: 1.3rem 1.5rem 1.6rem; }
+.doc-card__name { font-size: 1.2rem; margin-bottom: .25rem; }
+.doc-card__name a { color: var(--ink); }
+.doc-card__name a:hover { color: var(--blue-700); }
+.doc-card__pos { font-size: .93rem; color: var(--blue-600); font-family: var(--head); font-weight: 700; }
+.doc-card__exp { font-size: .86rem; color: var(--ink-40); margin-top: .4rem; }
+
+/* Врач single */
+.doctor-layout { display: grid; grid-template-columns: 380px 1fr; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
+.doctor-photo { border-radius: var(--r-lg); overflow: hidden; background: var(--grad-soft); aspect-ratio: 4/5; display: grid; place-items: center; position: sticky; top: 100px; box-shadow: var(--sh); }
+.doctor-photo img { width: 100%; height: 100%; object-fit: cover; }
+.doctor-photo .ph { width: 40%; height: 40%; color: var(--blue); opacity: .5; }
+.doctor-meta { display: flex; flex-wrap: wrap; gap: .7rem; margin: 1rem 0 1.6rem; }
+.doctor-tag { background: var(--blue-50); color: var(--blue-700); border-radius: var(--r-pill); padding: .45rem 1rem; font-family: var(--head); font-weight: 700; font-size: .9rem; }
+.doctor-tag--green { background: var(--green-50); color: var(--green-600); }
+.doctor-clinics { display: grid; gap: .8rem; margin-top: 1rem; }
+.doctor-clinic { display: flex; align-items: flex-start; gap: .8rem; background: var(--blue-50); border-radius: var(--r); padding: 1rem 1.2rem; transition: background .2s ease; }
+.doctor-clinic:hover { background: var(--blue-100); }
+.doctor-clinic > svg { width: 1.3em; height: 1.3em; color: var(--blue); flex: none; margin-top: .15rem; }
+.doctor-clinic b { font-family: var(--head); display: block; color: var(--ink); }
+.doctor-clinic span span { font-size: .9rem; color: var(--ink-60); }
+
+/* Цены */
+.price-table { width: 100%; border-collapse: collapse; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; margin-bottom: 2rem; }
+.price-table caption { text-align: left; font-family: var(--head); font-weight: 800; font-size: 1.3rem; padding: 1.2rem 1.4rem .4rem; color: var(--ink); }
+.price-table th, .price-table td { padding: .95rem 1.4rem; text-align: left; border-top: 1px solid var(--line); font-size: 1rem; }
+.price-table th { background: var(--blue-50); font-family: var(--head); font-weight: 700; color: var(--ink-60); }
+.price-table td:last-child, .price-table th:last-child { text-align: right; white-space: nowrap; }
+.price-table tr:hover td { background: var(--blue-50); }
+.price-table .price { font-family: var(--head); font-weight: 800; color: var(--ink); }
+.price-note { font-size: .88rem; color: var(--ink-40); }
+
+/* Карты (контакты) */
+.branches-grid { display: grid; gap: clamp(1.2rem, 2.4vw, 2rem); }
+.branch { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-sm); }
+.branch__info { padding: clamp(1.6rem, 3vw, 2.2rem); }
+.branch__title { font-size: 1.4rem; margin-bottom: 1.1rem; }
+.branch__row { display: flex; align-items: flex-start; gap: .7rem; margin-bottom: .7rem; color: var(--ink-60); }
+.branch__row svg { width: 1.2em; height: 1.2em; color: var(--blue); margin-top: .2rem; flex: none; }
+.branch__row a { color: var(--ink); font-family: var(--head); font-weight: 700; }
+.branch__map { min-height: 260px; background: var(--blue-50); }
+.branch__map iframe { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; }
+.branch__map--ph { display: grid; place-items: center; color: var(--blue); }
+.branch__map--ph svg { width: 60px; height: 60px; opacity: .4; }
+.branch__actions { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.3rem; flex-wrap: wrap; }
+
+/* CTA-полоса */
+.cta-band { background: var(--grad); border-radius: var(--r-xl); padding: clamp(2rem, 4vw, 3rem) clamp(1.5rem, 4vw, 3.5rem); color: #fff; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; box-shadow: var(--sh-lg); }
+.cta-band h2 { color: #fff; font-size: clamp(1.6rem, 3vw, 2.4rem); margin: 0; }
+.cta-band p { color: rgba(255,255,255,.9); margin: .5rem 0 0; }
+
+/* 404 */
+.error404-box { text-align: center; padding: clamp(3rem, 8vw, 6rem) 0; }
+.error404-box .code { font-family: var(--head); font-weight: 900; font-size: clamp(5rem, 16vw, 11rem); line-height: 1; background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+.error404-box h1 { font-size: clamp(1.6rem, 3vw, 2.2rem); margin: .5rem 0 1rem; }
+.error404-box p { color: var(--ink-60); margin-bottom: 1.8rem; }
+.error404-links { display: flex; gap: .8rem; justify-content: center; flex-wrap: wrap; }
+
+/* Часы в подвале — по строкам */
+.footer__hours-line { display: block; }
+
+/* Клиники */
+.clinic-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.4vw, 2rem); }
+.clinic-card { display: flex; flex-direction: column; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-sm); transition: transform .2s var(--ease), box-shadow .2s var(--ease); }
+.clinic-card:hover { transform: translateY(-6px); box-shadow: var(--sh); }
+.clinic-card__body { padding: 1.6rem 1.6rem 1rem; flex: 1; }
+.clinic-card__badge { display: inline-flex; align-items: center; gap: .4rem; background: var(--green-50); color: var(--green-600); border-radius: var(--r-pill); padding: .35rem .9rem; font-family: var(--head); font-weight: 700; font-size: .82rem; margin-bottom: 1rem; }
+.clinic-card__badge svg { width: 1.1em; height: 1.1em; }
+.clinic-card__title { font-size: 1.35rem; margin-bottom: 1rem; }
+.clinic-card__title a { color: var(--ink); }
+.clinic-card__title a:hover { color: var(--blue-700); }
+.clinic-card__row { display: flex; align-items: flex-start; gap: .6rem; margin-bottom: .6rem; color: var(--ink-60); font-size: .96rem; }
+.clinic-card__row svg { width: 1.15em; height: 1.15em; color: var(--blue); margin-top: .2rem; flex: none; }
+.clinic-card__row a { color: var(--ink); font-family: var(--head); font-weight: 700; }
+.clinic-card__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 1rem 1.6rem 1.6rem; border-top: 1px solid var(--line); margin-top: .5rem; }
+
+.clinic-single { display: grid; grid-template-columns: 1fr 1.3fr; gap: 0; background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--sh-sm); }
+.clinic-single__info { padding: clamp(1.6rem, 3vw, 2.4rem); }
+.clinic-single__map { min-height: 320px; background: var(--blue-50); display: grid; }
+.clinic-single__map iframe { width: 100%; height: 100%; min-height: 320px; border: 0; }
+.clinic-single__map .branch__map--ph { display: grid; place-items: center; color: var(--blue); }
+.clinic-single__map .branch__map--ph svg { width: 60px; height: 60px; opacity: .4; }
+
+/* Модальное окно записи */
+.modal { position: fixed; inset: 0; z-index: 1000; display: none; align-items: center; justify-content: center; padding: 1.2rem; }
+.modal.is-open { display: flex; }
+.modal__overlay { position: absolute; inset: 0; background: rgba(16,52,74,.55); backdrop-filter: blur(3px); animation: modalfade .25s var(--ease); }
+.modal__box { position: relative; z-index: 1; width: 100%; max-width: 460px; background: #fff; border-radius: var(--r-lg); box-shadow: var(--sh-lg); padding: clamp(1.6rem, 3vw, 2.4rem); max-height: calc(100vh - 2.4rem); overflow-y: auto; animation: modalpop .3s var(--ease); }
+@keyframes modalfade { from { opacity: 0; } }
+@keyframes modalpop { from { opacity: 0; transform: translateY(16px) scale(.98); } }
+.modal__title { font-size: 1.5rem; margin-bottom: .3rem; }
+.modal__sub { color: var(--ink-60); font-size: .96rem; margin-bottom: 1.3rem; }
+.modal__sub b { color: var(--blue-700); }
+.modal__close { position: absolute; top: 1rem; right: 1rem; width: 40px; height: 40px; border: none; border-radius: 50%; background: var(--blue-50); color: var(--ink); font-size: 1.4rem; line-height: 1; display: grid; place-items: center; cursor: pointer; transition: background .2s ease; }
+.modal__close:hover { background: var(--blue-100); }
+.modal[hidden] { display: none; }
+
+/* Статья */
+.article-meta { display: flex; align-items: center; gap: .6rem; color: var(--ink-40); font-family: var(--head); font-weight: 700; font-size: .92rem; margin-top: 1.1rem; }
+.article-meta .dot { color: var(--line-2); }
+.article-layout { display: grid; grid-template-columns: minmax(0, 1fr) 320px; gap: clamp(2rem, 4vw, 3.5rem); align-items: start; }
+.article-main { min-width: 0; }
+.article-main .prose { font-size: 1.12rem; }
+.article-aside { position: sticky; top: 100px; display: grid; gap: 1.2rem; }
+.aside-title { font-size: 1.1rem; margin-bottom: 1rem; }
+.aside-posts { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; }
+.aside-post { display: flex; gap: .8rem; align-items: center; }
+.aside-post__thumb { width: 62px; height: 62px; border-radius: 12px; overflow: hidden; background: var(--grad-soft); flex: none; display: grid; place-items: center; }
+.aside-post__thumb img { width: 100%; height: 100%; object-fit: cover; }
+.aside-post__ico { width: 26px; height: 26px; color: var(--blue); opacity: .5; }
+.aside-post__title { font-family: var(--head); font-weight: 700; font-size: .95rem; line-height: 1.25; color: var(--ink); }
+.aside-post:hover .aside-post__title { color: var(--blue-700); }
+.article-foot { margin-top: 2.5rem; padding-top: 1.6rem; border-top: 1px solid var(--line); display: flex; align-items: center; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+.article-share { display: flex; align-items: center; gap: .6rem; font-family: var(--head); font-weight: 700; color: var(--ink-60); font-size: .9rem; }
+.article-share a { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--blue-50); color: var(--blue-700); font-size: .8rem; font-weight: 800; }
+.article-share a:hover { background: var(--blue); color: #fff; }
+.article-nav { display: flex; gap: 1.2rem; font-family: var(--head); font-weight: 700; font-size: .9rem; }
+.article-nav a { color: var(--blue-600); }
+.article-nav a:hover { color: var(--blue-700); }
+
+@media (max-width: 1024px) {
+	.article-layout { grid-template-columns: 1fr; }
+	.article-aside { position: static; grid-template-columns: 1fr 1fr; }
+	.clinic-grid { grid-template-columns: repeat(2, 1fr); }
+	.clinic-single { grid-template-columns: 1fr; }
+	.clinic-single__map { min-height: 240px; }
+
+	.page-hero--split { grid-template-columns: 1fr; }
+	.page-hero__aside { justify-content: flex-start; }
+	.service-layout { grid-template-columns: 1fr; }
+	.service-aside { position: static; grid-template-columns: 1fr 1fr; }
+	.doctor-layout { grid-template-columns: 300px 1fr; }
+	.doctor-photo { position: static; }
+	.catalog-grid, .team-grid { grid-template-columns: repeat(2, 1fr); }
+	.branch { grid-template-columns: 1fr; }
+	.branch__map { min-height: 220px; }
+}
+@media (max-width: 620px) {
+	.catalog-grid, .team-grid, .service-aside, .clinic-grid { grid-template-columns: 1fr; }
+	.doctor-layout { grid-template-columns: 1fr; }
+	.doctor-photo { max-width: 320px; }
+	.price-table, .price-table thead, .price-table tbody, .price-table th, .price-table td, .price-table tr { display: block; }
+	.price-table thead { display: none; }
+	.price-table td { border-top: 0; padding: .3rem 1.2rem; }
+	.price-table tr { border-top: 1px solid var(--line); padding: .8rem 0; }
+	.price-table td:last-child { text-align: left; }
+}

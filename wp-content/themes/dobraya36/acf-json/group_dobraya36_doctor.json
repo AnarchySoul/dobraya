@@ -1,0 +1,147 @@
+{
+    "key": "group_dobraya36_doctor",
+    "title": "Параметры врача",
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "doctor"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "active": true,
+    "fields": [
+        {
+            "key": "field_doc_position",
+            "label": "Должность",
+            "name": "doc_position",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doc_specialization",
+            "label": "Специализация",
+            "name": "doc_specialization",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doc_experience",
+            "label": "Стаж, лет",
+            "name": "doc_experience",
+            "aria-label": "",
+            "type": "number",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "min": "",
+            "max": "",
+            "step": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doc_education",
+            "label": "Образование и повышение квалификации",
+            "name": "doc_education",
+            "aria-label": "",
+            "type": "textarea",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "rows": 4,
+            "new_lines": "",
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": ""
+        },
+        {
+            "key": "field_doc_categories",
+            "label": "Направления (через запятую)",
+            "name": "doc_categories",
+            "aria-label": "",
+            "type": "text",
+            "instructions": "",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "maxlength": "",
+            "placeholder": "",
+            "prepend": "",
+            "append": ""
+        },
+        {
+            "key": "field_doc_clinics",
+            "label": "Клиники (где принимает)",
+            "name": "doc_clinics",
+            "aria-label": "",
+            "type": "relationship",
+            "instructions": "Один врач может принимать в нескольких клиниках.",
+            "required": false,
+            "conditional_logic": false,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "post_type": [
+                "clinic"
+            ],
+            "filters": [
+                "search"
+            ],
+            "return_format": "id",
+            "taxonomy": [],
+            "min": 0,
+            "max": 0,
+            "elements": [],
+            "bidirectional_target": []
+        }
+    ],
+    "modified": 1783956501
+}

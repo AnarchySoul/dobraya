@@ -1,0 +1,42 @@
+# =============================================================
+# WordPress «Добрая стоматология» — track ONLY custom code.
+# Whitelist strategy: ignore everything, then re-include the
+# custom theme (dobraya36) and its setup mu-plugin.
+# WP core, wp-config, third-party plugins, uploads, DB dumps,
+# caches and dev tools are all excluded.
+# =============================================================
+
+# Ignore everything at the repo root by default
+/*
+
+# ...but keep repo meta files
+!.gitignore
+!README.md
+
+# Descend into wp-content only
+!/wp-content/
+/wp-content/*
+
+# --- Custom theme -------------------------------------------
+!/wp-content/themes/
+/wp-content/themes/*
+!/wp-content/themes/dobraya36/
+
+# --- Custom must-use plugin ---------------------------------
+!/wp-content/mu-plugins/
+/wp-content/mu-plugins/*
+!/wp-content/mu-plugins/dobraya36-setup.php
+
+# --- Never track, even inside whitelisted folders -----------
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+*.log
+
+# Node / build artifacts (if a build step is ever added)
+node_modules/
+*.map
+
+# Local env / secrets
+*.env
+.env
