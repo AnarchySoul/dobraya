@@ -80,7 +80,7 @@ while ( have_posts() ) :
 				<div class="post-cta">
 					<h3><?php esc_html_e( 'Записаться к врачу', 'dobraya36' ); ?></h3>
 					<p><?php esc_html_e( 'Оставьте заявку — администратор подберёт удобное время приёма.', 'dobraya36' ); ?></p>
-					<a class="btn btn--grad" href="<?php echo esc_url( home_url( '/kontakty/' ) ); ?>"><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?><?php echo $arw; ?></a>
+					<a class="btn btn--grad" href="#" data-booking><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?><?php echo $arw; ?></a>
 				</div>
 			</div>
 		</div>

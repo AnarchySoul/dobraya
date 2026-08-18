@@ -7,6 +7,22 @@
 
 	document.addEventListener('DOMContentLoaded', function () {
 
+		/* Блокировка прокрутки без смещения страницы (компенсируем ширину скроллбара). */
+		var scrollLocks = 0;
+		function lockScroll() {
+			if (scrollLocks++ > 0) { return; }
+			var sbw = window.innerWidth - document.documentElement.clientWidth;
+			if (sbw > 0) { document.body.style.paddingRight = sbw + 'px'; }
+			document.body.style.overflow = 'hidden';
+		}
+		function unlockScroll() {
+			if (scrollLocks > 0) { scrollLocks--; }
+			if (scrollLocks === 0) {
+				document.body.style.overflow = '';
+				document.body.style.paddingRight = '';
+			}
+		}
+
 		/* Мобильное меню */
 		var burger = document.querySelector('[data-nav-toggle]');
 		var nav = document.querySelector('.main-nav');
@@ -14,13 +30,13 @@
 			burger.addEventListener('click', function () {
 				var open = nav.classList.toggle('is-open');
 				burger.setAttribute('aria-expanded', open ? 'true' : 'false');
-				document.body.style.overflow = open ? 'hidden' : '';
+				if (open) { lockScroll(); } else { unlockScroll(); }
 			});
 			nav.addEventListener('click', function (e) {
-				if (e.target.closest('a')) {
+				if (e.target.closest('a') && nav.classList.contains('is-open')) {
 					nav.classList.remove('is-open');
 					burger.setAttribute('aria-expanded', 'false');
-					document.body.style.overflow = '';
+					unlockScroll();
 				}
 			});
 		}
@@ -61,7 +77,7 @@
 				lastFocus = document.activeElement;
 				modal.classList.add('is-open');
 				modal.setAttribute('aria-hidden', 'false');
-				document.body.style.overflow = 'hidden';
+				lockScroll();
 				if (clinic && clinicField) {
 					if (clinicField.tagName === 'SELECT') {
 						Array.prototype.forEach.call(clinicField.options, function (o) {
@@ -82,7 +98,7 @@
 			var closeModal = function () {
 				modal.classList.remove('is-open');
 				modal.setAttribute('aria-hidden', 'true');
-				document.body.style.overflow = '';
+				unlockScroll();
 				if (lastFocus) { lastFocus.focus(); }
 			};
 
@@ -152,5 +168,59 @@
 			}, { threshold: 0.6 });
 			counters.forEach(function (el) { cio.observe(el); });
 		}
+
+		/* Карты: активировать только по клику, чтобы скролл не зумил карту */
+		document.querySelectorAll('.branch__map, .clinic-single__map').forEach(function (wrap) {
+			var frame = wrap.querySelector('iframe');
+			if (!frame) { return; }
+			wrap.classList.add('map-embed');
+			var hint = document.createElement('span');
+			hint.className = 'map-embed__hint';
+			hint.textContent = 'Нажмите, чтобы работать с картой';
+			wrap.appendChild(hint);
+			wrap.addEventListener('click', function () { wrap.classList.add('is-active'); });
+			wrap.addEventListener('mouseleave', function () { wrap.classList.remove('is-active'); });
+		});
+
+		/* Плавный аккордеон FAQ */
+		document.querySelectorAll('.faq').forEach(function (faq) {
+			var items = Array.prototype.slice.call(faq.querySelectorAll('.faq__item'));
+			function expand(item) {
+				var a = item.querySelector('.faq__a');
+				item.setAttribute('open', '');
+				if (reduce) { return; }
+				a.classList.add('is-anim');
+				a.style.height = '0px';
+				requestAnimationFrame(function () { a.style.height = a.scrollHeight + 'px'; });
+				a.addEventListener('transitionend', function done() {
+					a.style.height = ''; a.classList.remove('is-anim');
+					a.removeEventListener('transitionend', done);
+				});
+			}
+			function collapse(item) {
+				var a = item.querySelector('.faq__a');
+				if (reduce) { item.removeAttribute('open'); return; }
+				a.classList.add('is-anim');
+				a.style.height = a.scrollHeight + 'px';
+				requestAnimationFrame(function () { a.style.height = '0px'; });
+				a.addEventListener('transitionend', function done() {
+					item.removeAttribute('open'); a.style.height = ''; a.classList.remove('is-anim');
+					a.removeEventListener('transitionend', done);
+				});
+			}
+			items.forEach(function (item) {
+				var q = item.querySelector('.faq__q');
+				if (!q) { return; }
+				q.addEventListener('click', function (e) {
+					e.preventDefault();
+					if (item.hasAttribute('open')) {
+						collapse(item);
+					} else {
+						items.forEach(function (o) { if (o !== item && o.hasAttribute('open')) { collapse(o); } });
+						expand(item);
+					}
+				});
+			});
+		});
 	});
 })();

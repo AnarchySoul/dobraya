@@ -125,7 +125,7 @@ while ( have_posts() ) :
 				<div class="aside-card aside-card--cta">
 					<h3><?php esc_html_e( 'Запишитесь на приём', 'dobraya36' ); ?></h3>
 					<p><?php esc_html_e( 'Бесплатная консультация и честный план лечения.', 'dobraya36' ); ?></p>
-					<a class="btn btn--white" style="margin-top:1rem" href="<?php echo esc_url( home_url( '/kontakty/' ) ); ?>"><?php esc_html_e( 'Записаться', 'dobraya36' ); ?><?php echo $arw; ?></a>
+					<a class="btn btn--white" style="margin-top:1rem" href="#" data-booking><?php esc_html_e( 'Записаться', 'dobraya36' ); ?><?php echo $arw; ?></a>
 				</div>
 			</aside>
 		</div>

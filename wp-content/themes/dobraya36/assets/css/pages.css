@@ -11,7 +11,7 @@
 
 /* Шапка внутренней страницы */
 .page-hero { background: var(--grad-soft); border-bottom: 1px solid var(--line); }
-.page-hero__inner { padding: clamp(1.5rem, 3vw, 2.5rem) 0 clamp(2rem, 4vw, 3rem); }
+.page-hero__inner { padding-top: clamp(1.5rem, 3vw, 2.5rem); padding-bottom: clamp(2rem, 4vw, 3rem); }
 .page-hero__eyebrow { margin-bottom: 1rem; }
 .page-hero__title { font-size: clamp(2rem, 4.5vw, 3.2rem); font-weight: 900; margin: 0; }
 .page-hero__title .hl { color: var(--blue); }
@@ -76,11 +76,16 @@
 
 /* FAQ аккордеон */
 .faq { display: grid; gap: .8rem; margin: 1.5rem 0; }
-.faq__item { border: 1px solid var(--line); border-radius: var(--r); background: #fff; overflow: hidden; }
-.faq__q { width: 100%; text-align: left; background: none; border: none; padding: 1.1rem 1.4rem; font-family: var(--head); font-weight: 800; font-size: 1.05rem; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; }
-.faq__q::after { content: "+"; font-size: 1.5rem; color: var(--blue); transition: transform .25s var(--ease); flex: none; }
+.faq__item { border: 1px solid var(--line); border-radius: var(--r); background: #fff; overflow: hidden; transition: border-color .2s var(--ease), box-shadow .2s var(--ease); }
+.faq__item[open] { border-color: var(--blue-200, #bfe0f5); box-shadow: var(--sh-sm); }
+.faq__q { width: 100%; text-align: left; background: none; border: none; padding: 1.1rem 1.4rem; font-family: var(--head); font-weight: 800; font-size: 1.05rem; color: var(--ink); display: flex; align-items: center; justify-content: space-between; gap: 1rem; cursor: pointer; list-style: none; }
+.faq__q::-webkit-details-marker { display: none; }
+.faq__q::after { content: "+"; font-size: 1.5rem; line-height: 1; color: var(--blue); transition: transform .3s var(--ease); flex: none; }
 .faq__item[open] .faq__q::after { transform: rotate(45deg); }
+/* Плавный аккордеон: высоту анимирует JS (.is-anim), нативно контент скрыт браузером. */
 .faq__a { padding: 0 1.4rem 1.2rem; color: var(--ink-60); }
+.faq__a.is-anim { overflow: hidden; transition: height .32s var(--ease); }
+.faq__a > *:first-child { margin-top: 0; }
 
 /* Врачи */
 .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(1.2rem, 2.4vw, 2rem); }
@@ -129,8 +134,14 @@
 .branch__row { display: flex; align-items: flex-start; gap: .7rem; margin-bottom: .7rem; color: var(--ink-60); }
 .branch__row svg { width: 1.2em; height: 1.2em; color: var(--blue); margin-top: .2rem; flex: none; }
 .branch__row a { color: var(--ink); font-family: var(--head); font-weight: 700; }
-.branch__map { min-height: 260px; background: var(--blue-50); }
+.branch__map { min-height: 260px; background: var(--blue-50); position: relative; }
 .branch__map iframe { width: 100%; height: 100%; min-height: 260px; border: 0; display: block; }
+/* Карта не перехватывает скролл страницы, пока по ней не кликнули. */
+.map-embed { position: relative; }
+.map-embed iframe { pointer-events: none; }
+.map-embed.is-active iframe { pointer-events: auto; }
+.map-embed__hint { position: absolute; inset: 0; z-index: 2; display: grid; place-items: center; text-align: center; padding: 1rem; background: rgba(16, 52, 74, .04); color: var(--ink-60); font-family: var(--head); font-weight: 700; font-size: .95rem; cursor: pointer; transition: opacity .2s var(--ease); }
+.map-embed.is-active .map-embed__hint { opacity: 0; pointer-events: none; }
 .branch__map--ph { display: grid; place-items: center; color: var(--blue); }
 .branch__map--ph svg { width: 60px; height: 60px; opacity: .4; }
 .branch__actions { display: flex; align-items: center; gap: 1.2rem; margin-top: 1.3rem; flex-wrap: wrap; }

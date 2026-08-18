@@ -100,7 +100,7 @@ function dobraya36_service_card( $arw ) {
 				<h2><?php esc_html_e( 'Не знаете, какая услуга нужна?', 'dobraya36' ); ?></h2>
 				<p><?php esc_html_e( 'Запишитесь на бесплатную консультацию — врач осмотрит и составит план лечения.', 'dobraya36' ); ?></p>
 			</div>
-			<a class="btn btn--white btn--lg" href="<?php echo esc_url( home_url( '/kontakty/' ) ); ?>"><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?></a>
+			<a class="btn btn--white btn--lg" href="#" data-booking><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?></a>
 		</div>
 	</div>
 </section>

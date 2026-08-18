@@ -54,7 +54,7 @@ while ( have_posts() ) : the_post(); ?>
 				<h2><?php esc_html_e( 'Рассрочка 0% на лечение', 'dobraya36' ); ?></h2>
 				<p><?php esc_html_e( 'Оплачивайте лечение частями без процентов, банка и справок о доходах.', 'dobraya36' ); ?></p>
 			</div>
-			<a class="btn btn--white btn--lg" href="<?php echo esc_url( home_url( '/kontakty/' ) ); ?>"><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?></a>
+			<a class="btn btn--white btn--lg" href="#" data-booking><?php esc_html_e( 'Записаться на приём', 'dobraya36' ); ?></a>
 		</div>
 	</div>
 </section>
