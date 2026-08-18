@@ -13,6 +13,9 @@
 !.gitignore
 !README.md
 
+# Migration deliverables (redirects, parked content, report)
+!/_migration/
+
 # Descend into wp-content only
 !/wp-content/
 /wp-content/*

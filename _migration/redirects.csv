@@ -1,0 +1,46 @@
+﻿old_url,new_url,status,note
+/sotrudnik-2-1/,/vrachi/kartashyan-lilit/,301,doctor
+/sotrudnik-2-1-0/,/vrachi/bratishko-angelina/,301,doctor
+/sotrudnik-1-2/,/vrachi/ahmedova-narmina/,301,doctor
+/sotrudnik-2-2/,/vrachi/dorofeeva-nataliya/,301,doctor
+/sotrudnik-3-3/,/vrachi/konnova-ekaterina/,301,doctor
+/sotrudnik-4/,/vrachi/siryakova-yana/,301,doctor
+/sotrudnik-5/,/vrachi/ugryumova-svetlana/,301,doctor
+/sotrudnik-6/,/vrachi/ivannikova-polina/,301,doctor
+/sotrudnik-7/,/vrachi/ehlakova-svetlana/,301,doctor
+/sotrudnik-8/,/vrachi/komarova-elena/,301,doctor
+/sotrudnik-9/,/vrachi/arhipov-artyom/,301,doctor
+/sotrudnik-10/,/vrachi/bukay-dmitriy/,301,doctor
+/sotrudnik-11/,/vrachi/golubcov-dmitriy/,301,doctor
+/vse-pro-karies/,/stati/vse-pro-karies/,301,article
+/pulpit/,/stati/pulpit/,301,article
+/periodontit/,/stati/periodontit/,301,article
+/otbelivanie-zubov/,/stati/otbelivanie-zubov/,301,article
+/ustanovka-implanta/,/stati/ustanovka-implanta/,301,article
+/viniry-ili-koronki/,/stati/viniry-ili-koronki/,301,article
+/lechenie-zubov-v-rassrochku/,/stati/lechenie-zubov-v-rassrochku/,301,article
+/garantiya-na-lechenie/,/stati/garantiya-na-lechenie/,301,article
+/anestezija-i-beremennost/,/stati/anestezija-i-beremennost/,301,article
+/sanacija-rotovoj-polosti/,/stati/sanacija-rotovoj-polosti/,301,article
+/professioonalnaja-gigiena-polosti-rta/,/stati/professioonalnaja-gigiena-polosti-rta/,301,article
+/otbelivanie-air-flow/,/stati/otbelivanie-air-flow/,301,article
+/skajsy-na-zuby/,/stati/skajsy-na-zuby/,301,article
+/obezbolivanie-v-stomatologii/,/stati/obezbolivanie-v-stomatologii/,301,article
+/implantat-ili-mostovidnyj-protez/,/stati/implantat-ili-mostovidnyj-protez/,301,article
+/plazmolifting/,/stati/plazmolifting/,301,article
+/mify-o-breketah/,/stati/mify-o-breketah/,301,article
+/health-tourism/,/stati/health-tourism/,301,article
+/air-flow-ili-ultrazvukovaya-chistka-chto-luchshe/,/stati/air-flow-ili-ultrazvukovaya-chistka-chto-luchshe/,301,article
+/statii/,/stati/,301,"old blog index -> new"
+/politika-konfidencialnosti/,/privacy-policy/,301,"privacy page slug changed"
+/pt_view/статьи-1/,/stati/,301,"page-builder view -> blog"
+/zirkonievaya-koronka/,/ceny-akcii/,301,"parked promo (циркониевая коронка)"
+/s-dnem-rozhdeniya/,/ceny-akcii/,301,"parked promo (birthday)"
+/lechenie-kariesa-1500r/,/ceny-akcii/,301,"parked акция draft"
+/ultrazvukovaya-chistka-1990r/,/ceny-akcii/,301,"parked акция draft"
+/ustanovka-koronki-2990r/,/ceny-akcii/,301,"parked акция draft"
+/polirovka-zubov-airflow-990r/,/ceny-akcii/,301,"parked акция draft"
+/skidka-na-brekety-30/,/ceny-akcii/,301,"parked акция draft"
+/prokol-ushej-800r/,/kontakty/,301,"ear-piercing offer not migrated"
+/prokol-ushej-studex/,/kontakty/,301,"ear-piercing offer not migrated"
+/uslugi/detskaya-stomatologiya/,/uslugi/,301,"детская стоматология was draft, not published"
