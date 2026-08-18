@@ -191,6 +191,20 @@
             "placeholder": "",
             "prepend": "",
             "append": ""
+        },
+        {
+            "key": "field_clinic_gallery",
+            "label": "Фотогалерея клиники",
+            "name": "clinic_gallery",
+            "type": "gallery",
+            "instructions": "Фотографии интерьера и работы клиники.",
+            "required": 0,
+            "return_format": "id",
+            "preview_size": "medium",
+            "insert": "append",
+            "library": "all",
+            "min": 0,
+            "max": 0
         }
     ]
 }

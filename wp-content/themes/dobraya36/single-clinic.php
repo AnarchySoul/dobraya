@@ -53,6 +53,25 @@ while ( have_posts() ) :
 			<?php if ( get_the_content() ) : ?>
 				<div class="prose" style="margin-top:2.5rem;max-width:760px"><?php the_content(); ?></div>
 			<?php endif; ?>
+
+			<?php
+			$gallery = get_field( 'clinic_gallery' );
+			if ( ! empty( $gallery ) ) :
+				?>
+				<div class="clinic-gallery" style="margin-top:2.5rem">
+					<h2 style="margin-bottom:1.2rem"><?php esc_html_e( 'Фотогалерея', 'dobraya36' ); ?></h2>
+					<div class="gallery-grid">
+						<?php foreach ( $gallery as $img_id ) :
+							$img_id = is_array( $img_id ) ? $img_id['ID'] : ( is_object( $img_id ) ? $img_id->ID : (int) $img_id );
+							$full   = wp_get_attachment_image_url( $img_id, 'large' );
+							?>
+							<a class="gallery-grid__item" href="<?php echo esc_url( $full ); ?>" target="_blank" rel="noopener">
+								<?php echo wp_get_attachment_image( $img_id, 'dobraya36_card', false, array( 'loading' => 'lazy' ) ); ?>
+							</a>
+						<?php endforeach; ?>
+					</div>
+				</div>
+			<?php endif; ?>
 		</div>
 	</section>
 
