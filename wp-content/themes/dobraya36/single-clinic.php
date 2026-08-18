@@ -23,7 +23,7 @@ while ( have_posts() ) :
 
 	<header class="page-hero">
 		<div class="wrap page-hero__inner">
-			<span class="eyebrow page-hero__eyebrow"><?php echo dobraya36_icon( 'pin' ); ?><?php echo esc_html( $dist ?: 'Клиника' ); ?></span>
+			<span class="eyebrow page-hero__eyebrow"><?php echo dobraya36_icon( 'pin' ); ?><?php esc_html_e( 'Клиника', 'dobraya36' ); ?></span>
 			<h1 class="page-hero__title"><?php the_title(); ?></h1>
 			<?php if ( $intro ) : ?><p class="page-hero__lead"><?php echo esc_html( $intro ); ?></p><?php endif; ?>
 		</div>

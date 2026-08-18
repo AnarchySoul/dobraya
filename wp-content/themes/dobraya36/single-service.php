@@ -20,6 +20,8 @@ while ( have_posts() ) :
 	$advantages = get_field( 'service_advantages' );
 	$steps      = get_field( 'service_steps' );
 	$faq        = get_field( 'service_faq' );
+	$svc_docs   = get_field( 'service_doctors' );
+	$svc_clin   = get_field( 'service_clinics' );
 	$terms      = get_the_terms( $id, 'service_cat' );
 	$cat        = ( $terms && ! is_wp_error( $terms ) ) ? $terms[0] : null;
 	?>
@@ -109,6 +111,17 @@ while ( have_posts() ) :
 					</div>
 				<?php endif; ?>
 
+				<?php if ( ! empty( $svc_clin ) ) : ?>
+					<div class="aside-card">
+						<h3 style="font-size:1.1rem;margin-bottom:1rem"><?php esc_html_e( 'Где получить услугу', 'dobraya36' ); ?></h3>
+						<ul class="aside-list">
+							<?php foreach ( $svc_clin as $clid ) : $clid = is_object( $clid ) ? $clid->ID : (int) $clid; ?>
+								<li><?php echo dobraya36_icon( 'pin' ); ?><span><a href="<?php echo esc_url( get_permalink( $clid ) ); ?>" style="color:inherit"><?php echo esc_html( get_field( 'clinic_address', $clid ) ?: get_the_title( $clid ) ); ?></a></span></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+				<?php endif; ?>
+
 				<div class="aside-card aside-card--cta">
 					<h3><?php esc_html_e( 'Запишитесь на приём', 'dobraya36' ); ?></h3>
 					<p><?php esc_html_e( 'Бесплатная консультация и честный план лечения.', 'dobraya36' ); ?></p>
@@ -117,6 +130,37 @@ while ( have_posts() ) :
 			</aside>
 		</div>
 	</section>
+
+	<?php
+	// Врачи, оказывающие услугу.
+	if ( ! empty( $svc_docs ) ) : ?>
+		<section class="section section--tint">
+			<div class="wrap">
+				<div class="section-head section-head--left">
+					<span class="eyebrow"><?php esc_html_e( 'Специалисты', 'dobraya36' ); ?></span>
+					<h2 class="section-title"><?php esc_html_e( 'Врачи, которые оказывают услугу', 'dobraya36' ); ?></h2>
+				</div>
+				<div class="team-grid" data-stagger>
+					<?php foreach ( $svc_docs as $doc ) :
+						$doc_id = is_object( $doc ) ? $doc->ID : (int) $doc;
+						$dpos   = get_field( 'doc_position', $doc_id );
+						$dexp   = get_field( 'doc_experience', $doc_id );
+						?>
+						<article class="doc-card">
+							<a class="doc-card__photo" href="<?php echo esc_url( get_permalink( $doc_id ) ); ?>">
+								<?php if ( has_post_thumbnail( $doc_id ) ) { echo get_the_post_thumbnail( $doc_id, 'dobraya36_card', array( 'loading' => 'lazy' ) ); } else { echo dobraya36_icon( 'heart', 'ph' ); } ?>
+							</a>
+							<div class="doc-card__body">
+								<h3 class="doc-card__name"><a href="<?php echo esc_url( get_permalink( $doc_id ) ); ?>"><?php echo esc_html( get_the_title( $doc_id ) ); ?></a></h3>
+								<?php if ( $dpos ) : ?><div class="doc-card__pos"><?php echo esc_html( $dpos ); ?></div><?php endif; ?>
+								<?php if ( $dexp ) : ?><div class="doc-card__exp"><?php printf( esc_html__( 'Стаж %d лет', 'dobraya36' ), (int) $dexp ); ?></div><?php endif; ?>
+							</div>
+						</article>
+					<?php endforeach; ?>
+				</div>
+			</div>
+		</section>
+	<?php endif; ?>
 
 	<?php
 	// Похожие услуги.

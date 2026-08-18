@@ -305,7 +305,33 @@
             "max": 0,
             "rows_per_page": 20,
             "collapsed": ""
+        },
+        {
+            "key": "field_service_doctors",
+            "label": "Врачи, оказывающие услугу",
+            "name": "service_doctors",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "post_type": [ "doctor" ],
+            "filters": [ "search" ],
+            "return_format": "id",
+            "min": 0,
+            "max": 0
+        },
+        {
+            "key": "field_service_clinics",
+            "label": "Клиники, где доступна услуга",
+            "name": "service_clinics",
+            "type": "relationship",
+            "instructions": "",
+            "required": 0,
+            "post_type": [ "clinic" ],
+            "filters": [ "search" ],
+            "return_format": "id",
+            "min": 0,
+            "max": 0
         }
     ],
-    "modified": 1783956501
+    "modified": 1786000001
 }

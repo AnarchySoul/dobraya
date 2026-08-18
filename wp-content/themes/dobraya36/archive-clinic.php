@@ -34,7 +34,6 @@ $arw = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6
 					?>
 					<article class="clinic-card">
 						<div class="clinic-card__body">
-							<span class="clinic-card__badge"><?php echo dobraya36_icon( 'pin' ); ?><?php echo esc_html( $dist ?: 'Воронеж' ); ?></span>
 							<h2 class="clinic-card__title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 							<div class="clinic-card__row"><?php echo dobraya36_icon( 'pin' ); ?><span><?php echo esc_html( $addr ); ?></span></div>
 							<div class="clinic-card__row"><?php echo dobraya36_icon( 'clock' ); ?><span><?php echo esc_html( trim( $hw . ' · ' . $he, ' ·' ) ); ?></span></div>

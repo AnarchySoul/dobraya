@@ -47,8 +47,24 @@ function dobraya36_service_card( $arw ) {
 <section class="section">
 	<div class="wrap">
 		<?php
-		$cats = get_terms( array( 'taxonomy' => 'service_cat', 'hide_empty' => true, 'orderby' => 'name' ) );
+		$cats = get_terms( array( 'taxonomy' => 'service_cat', 'hide_empty' => true ) );
+		// Логический порядок направлений (медицинский, а не алфавитный).
+		$order = array( 'terapiya', 'parodontologiya', 'hirurgiya', 'implantologiya', 'ortopediya', 'ortodontiya', 'estetika', 'beremennym' );
 		if ( ! empty( $cats ) && ! is_wp_error( $cats ) ) :
+			usort( $cats, function ( $a, $b ) use ( $order ) {
+				$ia = array_search( $a->slug, $order, true );
+				$ib = array_search( $b->slug, $order, true );
+				$ia = ( false === $ia ) ? 99 : $ia;
+				$ib = ( false === $ib ) ? 99 : $ib;
+				return $ia <=> $ib;
+			} );
+			?>
+			<nav class="catalog-nav" aria-label="<?php esc_attr_e( 'Направления', 'dobraya36' ); ?>">
+				<?php foreach ( $cats as $cat ) : ?>
+					<a class="catalog-nav__chip" href="#dir-<?php echo esc_attr( $cat->slug ); ?>"><?php echo esc_html( $cat->name ); ?><span class="catalog-nav__count"><?php echo (int) $cat->count; ?></span></a>
+				<?php endforeach; ?>
+			</nav>
+			<?php
 			foreach ( $cats as $cat ) :
 				$q = new WP_Query( array(
 					'post_type'      => 'service',
@@ -58,7 +74,7 @@ function dobraya36_service_card( $arw ) {
 				) );
 				if ( ! $q->have_posts() ) { continue; }
 				?>
-				<div class="catalog__group" data-stagger>
+				<div class="catalog__group" id="dir-<?php echo esc_attr( $cat->slug ); ?>" data-stagger>
 					<h2 class="catalog__group-title"><a href="<?php echo esc_url( get_term_link( $cat ) ); ?>" style="color:inherit"><?php echo esc_html( $cat->name ); ?></a></h2>
 					<div class="catalog-grid">
 						<?php while ( $q->have_posts() ) : $q->the_post(); dobraya36_service_card( $arw ); endwhile; ?>

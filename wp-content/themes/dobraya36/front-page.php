@@ -173,7 +173,9 @@ $mark = DOBRAYA36_URI . '/assets/img/icon-512.png';
 		</div>
 		<div class="promos" data-stagger>
 			<?php
-			$promos = $F( 'promos', array(
+			$akcii_page = get_page_by_path( 'akcii' );
+				$promos_src = ( $akcii_page && function_exists( 'get_field' ) ) ? get_field( 'promos', $akcii_page->ID ) : array();
+				$promos = ! empty( $promos_src ) ? array_slice( (array) $promos_src, 0, 3 ) : ( array(
 				array( 'style' => 'grad', 'badge' => 'Имплантация', 'title' => 'Имплант OSSTEM под ключ', 'text' => 'Надёжная система с пожизненной гарантией.', 'price_new' => '27 900', 'price_old' => '34 000', 'cta' => 'Записаться' ),
 				array( 'style' => 'white', 'badge' => 'Протезирование', 'title' => 'Коронка из диоксида циркония', 'text' => 'Прочная и эстетичная, как свой зуб.', 'price_new' => '15 000', 'price_old' => '', 'cta' => 'Записаться' ),
 				array( 'style' => 'green', 'badge' => 'Подарок', 'title' => 'Скидка в честь дня рождения', 'text' => 'Приятная скидка в течение недели до и после праздника.', 'price_new' => '', 'price_old' => '', 'cta' => 'Узнать условия' ),
@@ -200,6 +202,11 @@ $mark = DOBRAYA36_URI . '/assets/img/icon-512.png';
 				</article>
 			<?php endforeach; ?>
 		</div>
+		<?php if ( $akcii_page ) : ?>
+			<div class="section-foot" style="text-align:center;margin-top:2rem">
+				<a class="btn btn--ghost" href="<?php echo esc_url( get_permalink( $akcii_page->ID ) ); ?>"><?php esc_html_e( 'Все акции', 'dobraya36' ); ?><?php echo $arw; ?></a>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>
 

@@ -1,0 +1,97 @@
+{
+    "key": "group_dobraya36_promos",
+    "title": "Акции",
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates\/template-promos.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "active": true,
+    "fields": [
+        {
+            "key": "field_promos_page_intro",
+            "label": "Вводный текст",
+            "name": "promos_page_intro",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "rows": 2,
+            "new_lines": ""
+        },
+        {
+            "key": "field_promos_list",
+            "label": "Акции",
+            "name": "promos",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "layout": "block",
+            "button_label": "Добавить акцию",
+            "min": 0,
+            "max": 0,
+            "sub_fields": [
+                {
+                    "key": "field_promo_style",
+                    "label": "Стиль",
+                    "name": "style",
+                    "type": "select",
+                    "choices": { "default": "Обычный", "accent": "Акцентный (тёмный)", "warm": "Тёплый" },
+                    "default_value": "default",
+                    "ui": 1,
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_badge",
+                    "label": "Категория (бейдж)",
+                    "name": "badge",
+                    "type": "text",
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_title",
+                    "label": "Заголовок",
+                    "name": "title",
+                    "type": "text",
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_text",
+                    "label": "Описание",
+                    "name": "text",
+                    "type": "textarea",
+                    "rows": 2,
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_price_new",
+                    "label": "Цена по акции, ₽",
+                    "name": "price_new",
+                    "type": "text",
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_price_old",
+                    "label": "Старая цена, ₽",
+                    "name": "price_old",
+                    "type": "text",
+                    "parent_repeater": "field_promos_list"
+                },
+                {
+                    "key": "field_promo_cta",
+                    "label": "Текст кнопки",
+                    "name": "cta",
+                    "type": "text",
+                    "default_value": "Записаться",
+                    "parent_repeater": "field_promos_list"
+                }
+            ]
+        }
+    ],
+    "modified": 1786000000
+}

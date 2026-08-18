@@ -9,7 +9,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'DOBRAYA36_VERSION', '3.2.0' );
+define( 'DOBRAYA36_VERSION', '3.3.0' );
 define( 'DOBRAYA36_DIR', get_template_directory() );
 define( 'DOBRAYA36_URI', get_template_directory_uri() );
 
